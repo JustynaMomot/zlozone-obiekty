@@ -1,0 +1,96 @@
+#1
+ma1 = matrix(0:11, nrow = 3, ncol = 4)
+
+ma2 = matrix(2, nrow = 3, ncol = 4)
+
+ma3 = matrix(sample(1:3), nrow = 3, ncol = 4)
+
+#2
+ma1 + ma2
+
+ma1 - ma2
+
+ma1 * ma2
+
+ma1 / ma2
+
+ma1 + ma3
+
+ma1 - ma3
+
+ma1 * ma3
+
+ma1 / ma3
+
+#Kazda liczba z pierwszej macierzy jest dodawana, odejmowana, mnozona lub dzielona z liczba z tego samego mniejsca w drugiej macierzy
+
+#3
+ma1[c(1), ]
+
+ma1[ ,c(4)]
+
+#4
+ma3[c(ma3 > 2)]
+
+#5
+ma4 = cbind(ma1, ma3)
+ma4
+
+#6
+ra1 = data.frame(data = c('2019-04-15', '2019-04-14', '2019-04-13'),
+                 miasto = ('Poznan')
+)
+
+#7
+ra2 = data.frame(tmin = c(5.3, 4.6, 2.9),
+                 tmax = c(11.1, 14.6, 9.0)
+                 
+)
+
+#8
+ra3 = cbind(ra1, ra2)
+
+srednia1 = ra3[ , c(3,4)]
+
+mean(srednia1)
+
+tmean = c(8.2, 9.6, 5.95)
+
+ra3 = cbind(ra3, tmean)
+
+
+#9
+colnames(ra3) = c('data', 'tmaks', 'tsr', 'tmax' )
+
+
+#10
+ra3[ra3$tmean > 8, c(1,5)]
+
+#11
+  li1 = list(c(10:0),
+             c(ma4),
+             c(ra3)
+  )
+
+li1
+
+#12
+wektor_1 = li1[[1]]
+
+names(li1) = c('wektor_1', 'wektor_2', 'wektor_3')
+
+#13
+zlozona_li1 = list(list(li1))
+
+str(zlozona_li1)
+
+srednia_tsr = mean(li1$wektor_3$tsr)
+
+srednia_tsr
+
+#14
+macierz = as.matrix(ra1)
+
+macierz
+
+class(macierz)
